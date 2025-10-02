@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --glass-bg: rgba(17, 24, 39, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* Animated gradient background */
+.bg-animated {
+  background: linear-gradient(-45deg,#0ea5e9,#6366f1,#22c55e,#f59e0b,#ef4444);
+  background-size: 400% 400%;
+  animation: gradient 20s ease infinite;
+}
+
+/* Bokeh orbs */
+.bg-orbs::before,
+.bg-orbs::after {
+  content: "";
+  position: absolute;
+  inset: -10% -10% auto auto;
+  width: 45vmin;
+  height: 45vmin;
+  background: radial-gradient(circle at 30% 30%, rgba(59,130,246,0.45), transparent 60%);
+  filter: blur(30px);
+  transform: translate(-20%, 10%);
+  border-radius: 9999px;
+}
+.bg-orbs::after {
+  inset: auto auto -10% -10%;
+  background: radial-gradient(circle at 60% 60%, rgba(16,185,129,0.45), transparent 60%);
+  transform: translate(10%, -20%);
+}
+
+/***** Glassmorphism card *****/
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
